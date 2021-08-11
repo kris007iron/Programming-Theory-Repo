@@ -5,10 +5,11 @@ using UnityEngine;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
-    public int language
-    {
+    public int language 
+    {         
         get;
         set;//encapsulation
+        
     }    
     private void Awake()
     {

@@ -11,8 +11,9 @@ public class MenuUIHandler : MonoBehaviour
     public TextMeshProUGUI title;
     // Start is called before the first frame update
     void Start()
-    {
-        ChooseLanguage(LanguageChoser.value);
+    {        
+        ChooseLanguage(MainManager.Instance.language);
+        LanguageChoser.value = MainManager.Instance.language;
         LanguageChoser.onValueChanged.AddListener(ChooseLanguage);              
     }
 
@@ -21,7 +22,7 @@ public class MenuUIHandler : MonoBehaviour
     {
         
     }
-    void ChooseLanguage(int language)
+    void ChooseLanguage(int language)//abstraction
     {
         switch (language)
         {
