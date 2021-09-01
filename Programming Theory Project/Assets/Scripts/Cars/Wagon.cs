@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Wagon : Car // INHERITANCE
 {
@@ -8,8 +10,8 @@ public class Wagon : Car // INHERITANCE
     // Start is called before the first frame update
     void Start()
     {
-        SetUpT();
         SetUp("Wagon", "Combi", "5 and 3 windows on side", "5 i 3 okna na stronê", "Audi Allroad and Volvo V70", "Audi Allroad i Vol");
+        StartCoroutine(DelayCanvasTurnOff());
         //ABSTRACTION i just put neacessary informations
     }
     public override string ConfigureInfo(int language) // POLYMORPHISM
@@ -31,5 +33,18 @@ public class Wagon : Car // INHERITANCE
                 break;
         }
         return info;
+    }
+    public override void SetUpT()
+    {
+        infoT = GameObject.Find("InfoText").GetComponent<TextMeshProUGUI>();
+        panel = GameObject.Find("InfoPanel");
+        panel.SetActive(false);
+        button = gameObject.GetComponent<Button>();
+        button.onClick.AddListener(OnClick);
+    }
+    IEnumerator DelayCanvasTurnOff()
+    {
+        yield return new WaitForSeconds(0.1f);
+        SetUpT();
     }
 }

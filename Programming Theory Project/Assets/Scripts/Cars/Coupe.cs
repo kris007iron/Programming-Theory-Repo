@@ -7,12 +7,7 @@ public class Coupe : Car
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SetUpT();
+        SetUp("Coupe", "Coupe", "2 and sometimes funcitional rear seats", "2 i czsami funkcjonalne tylnie siedzenia", "BMW 4-series and Scion TC", "BMW serii 4. i Scion TC");
     }
 }
